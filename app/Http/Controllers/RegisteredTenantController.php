@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RegisterTenantRequest;
+use App\Models\Tenant;
 use Illuminate\Http\Request;
 
 class RegisteredTenantController extends Controller
@@ -16,7 +17,7 @@ class RegisteredTenantController extends Controller
 
     public function store(RegisterTenantRequest $request)
     {
-        dd($request);
+        $tenant = Tenant::create($request->validated());
     }
 
 }
