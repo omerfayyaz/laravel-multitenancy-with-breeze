@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rules\Password;
 
 class RegisterTenantRequest extends FormRequest
 {
@@ -13,7 +14,7 @@ class RegisterTenantRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +25,11 @@ class RegisterTenantRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'company' => 'required|string|max:255',
+            'domain' => 'required|string|max:255|unique:domains',
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'password' => ['required','confirmed', Password::defaults()],
         ];
     }
 }

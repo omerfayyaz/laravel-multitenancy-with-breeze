@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegisterTenantRequest;
 use Illuminate\Http\Request;
 
 class RegisteredTenantController extends Controller
@@ -13,7 +14,7 @@ class RegisteredTenantController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(RegisterTenantRequest $request)
     {
         dd($request);
     }
