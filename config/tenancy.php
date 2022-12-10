@@ -18,7 +18,6 @@ return [
      */
     'central_domains' => [
         'localhost',
-        'tenancy-with-breeze.test',
     ],
 
     /**
